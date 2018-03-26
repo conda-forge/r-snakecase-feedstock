@@ -1,4 +1,4 @@
-{% set version = '0.9.0' %}
+{% set version = "0.9.1" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/snakecase_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/snakecase/snakecase_{{ version }}.tar.gz
-  sha256: ca2c525eff130b6586dc9747531ce50267a4be0789474a7976b8b6ddf456430b
+  sha256: db5f38e0d8d4b3410e372d430d90f20cd3a0c51f2ce725a022552b04da168608
 
 build:
   number: 0

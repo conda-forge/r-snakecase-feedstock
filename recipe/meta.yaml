@@ -1,5 +1,4 @@
-{% set version = "0.9.1" %}
-
+{% set version = '0.9.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +9,12 @@ package:
 source:
   fn: snakecase_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/snakecase_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/snakecase/snakecase_{{ version }}.tar.gz
-  sha256: db5f38e0d8d4b3410e372d430d90f20cd3a0c51f2ce725a022552b04da168608
+    - {{ cran_mirror }}/src/contrib/snakecase_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/snakecase/snakecase_{{ version }}.tar.gz
+  sha256: d2d33851f24fc25636fa63b3020a56f10f54369b19435e81e644d0364a54ddbc
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
   rpaths:
@@ -23,10 +23,11 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-stringi
     - r-stringr
-
   run:
     - r-base
     - r-stringi
@@ -34,7 +35,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('snakecase')"  # [not win]
+    - $R -e "library('snakecase')"           # [not win]
     - "\"%R%\" -e \"library('snakecase')\""  # [win]
 
 about:
@@ -48,8 +49,9 @@ about:
 
 extra:
   recipe-maintainers:
-    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast

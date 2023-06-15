@@ -1,11 +1,11 @@
-About r-snakecase
-=================
+About r-snakecase-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-snakecase-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/Tazinho/snakecase
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-snakecase-feedstock/blob/main/LICENSE.txt)
 
 Summary: A consistent, flexible and easy to use tool to parse and convert strings into cases like snake or camel among others.
 
